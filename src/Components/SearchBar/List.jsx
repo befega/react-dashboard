@@ -21,7 +21,11 @@ function List(props) {
           ))
         ) : (
           <>
-            <li className="flex-auto w-full h-full text-center text-sm appearance-none bg-transparent bg-slate-200 pt-5 pb-5 pr-2 pl-2 text-zinc-900 outline-none placeholder:text-zinc-500 focus:w-full focus:flex-none hover:bg-slate-100">
+            <li
+              className={`flex-auto ${
+                props.input.length > 0 ? "" : "hidden"
+              } w-full h-full text-center text-sm appearance-none bg-transparent bg-slate-200 pt-5 pb-5 pr-2 pl-2 text-zinc-900 outline-none placeholder:text-zinc-500 focus:w-full focus:flex-none hover:bg-slate-100`}
+            >
               {props.input.length > 0
                 ? `Nothing found for ${props.input}. Please try again`
                 : ""}
