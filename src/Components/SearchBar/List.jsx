@@ -1,17 +1,5 @@
-import { React, useState } from "react";
+import { React } from "react";
 import data from "../../api/search.json";
-/* import Highlighter from "react-highlight-words";
-
-function HighlightQuery({ text, query }) {
-  return (
-    <Highlighter
-      highlightClassName="underline bg-transparent text-emerald-500"
-      searchWords={[query]}
-      autoEscape={true}
-      textToHighlight={text}
-    />
-  );
-} */
 
 function List(props) {
   const filteredData = data.filter((el) => {
