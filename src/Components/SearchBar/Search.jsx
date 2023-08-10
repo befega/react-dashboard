@@ -33,7 +33,7 @@ export default function Search(props) {
         />
         <input
           id="search-field"
-          className="block h-full w-full border-0 py-0 pl-8 pr-0 cursor-pointer text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
+          className="block h-full w-full py-0 pl-8 pr-0 cursor-pointer text-gray-900 placeholder:text-gray-400 focus:ring-0 focus:border-none active:border-none active:ring-0 border-none sm:text-sm"
           placeholder="Find something..."
           type="search"
           name="search"
@@ -43,7 +43,7 @@ export default function Search(props) {
         />
       </form>
       <Transition appear show={isModalOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-20" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
