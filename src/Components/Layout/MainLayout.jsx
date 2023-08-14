@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
 import { Dialog, Menu, Transition } from "@headlessui/react";
-import { Content } from "../Content/Content";
 import Search from "../SearchBar/Search";
 import {
   Bars3Icon,
@@ -14,15 +14,13 @@ import {
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import {
-  ChevronDownIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/20/solid";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import MainContent from "./MainContent";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
+  { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
+  { name: "Cards", href: "/cards", icon: UsersIcon, current: false },
+  { name: "Tables", href: "/tables", icon: FolderIcon, current: false },
   { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
   { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
@@ -41,7 +39,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Sidebar() {
+export default function MainLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
@@ -112,8 +110,8 @@ export default function Sidebar() {
                         <ul role="list" className="-mx-2 space-y-1">
                           {navigation.map((item) => (
                             <li key={item.name}>
-                              <a
-                                href={item.href}
+                              <Link
+                                to={item.href}
                                 className={classNames(
                                   item.current
                                     ? "bg-gray-50 text-indigo-600"
@@ -131,7 +129,7 @@ export default function Sidebar() {
                                   aria-hidden="true"
                                 />
                                 {item.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
@@ -236,8 +234,8 @@ export default function Sidebar() {
                 <ul role="list" className="-mx-2 mt-2 space-y-1">
                   {teams.map((team) => (
                     <li key={team.name}>
-                      <a
-                        href={team.href}
+                      <Link
+                        to={team.href}
                         className={classNames(
                           team.current
                             ? "bg-gray-50 text-indigo-600"
@@ -256,7 +254,7 @@ export default function Sidebar() {
                           {team.initial}
                         </span>
                         <span className="truncate">{team.name}</span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -362,11 +360,7 @@ export default function Sidebar() {
             </div>
           </div>
         </div>
-        <main className="py-10">
-          <div className="px-4 sm:px-6 lg:px-8">
-            <Content />
-          </div>
-        </main>
+        <MainContent />
       </div>
     </>
   );

@@ -1,13 +1,12 @@
-import Stats from "./Stats";
+/* import Stats from "./Stats";
 import ChartPie from "../Charts/cpld";
 import DropChart from "../Charts/cdl";
 import MetricChart from "../Charts/ccbm";
-import MetricChart2 from "../Charts/ccbm2";
 import ChartTabMetric from "../Charts/cdmtlb";
 import { MembersTable } from "../DataTables/MemberTable";
-import MetricCard from "../Charts/ccbm2/card";
+import MetricCard from "../Charts/ccbm2/card"; */
 
-export const Content = () => {
+export const HomePage = () => {
   return (
     <>
       <div className="mx-auto max-w-7xl py-1 sm:px-6 lg:px-8">
@@ -21,7 +20,7 @@ export const Content = () => {
           <MetricChart />
         </div> */}
         {/* <LineChart /> */}
-        <MetricChart2 />
+        <h2>main home page</h2>
 
         {/* <MembersTable /> */}
       </div>
