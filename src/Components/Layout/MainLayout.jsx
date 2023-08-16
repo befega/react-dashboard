@@ -18,7 +18,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import MainContent from "./MainContent";
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
+  { name: "Dashboard", href: "/", icon: HomeIcon, current: false },
   { name: "Cards", href: "/cards", icon: UsersIcon, current: false },
   { name: "Tables", href: "/tables", icon: FolderIcon, current: false },
   { name: "Calendar", href: "#", icon: CalendarIcon, current: false },

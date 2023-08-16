@@ -5,8 +5,8 @@ import LineMetric from "./LineItem";
 export default function index(props) {
   return (
     <>
-      <div className="grid grid-rows-2 w-60 p-2 text-black bg-slate-50 rounded-lg shadow-lg">
-        <div className="flex w-full h-8 justify-start p-2 items-center">
+      <div className="grid grid-rows-2 w-60 p-2 text-black rounded-lg shadow-lg md:shadow-none lg:shadow-none">
+        <div className="flex w-full h-8 justify-start p-2 items-center font-inter">
           <span>{props.title}</span>
         </div>
         <div className="">
@@ -27,15 +27,24 @@ export default function index(props) {
                   className="absolute"
                   icon="mdi:circle"
                   width="28"
-                  color="#d19a62"
+                  color=""
                 />
                 <span className="relative text-white">
-                  <Icon
-                    className="rotate-145"
-                    icon="ion:arrow-up"
-                    width="16"
-                    color="#db1607"
-                  />
+                  {props.rateNumber == 0 ? (
+                    <Icon
+                      className="rotate-145"
+                      icon="ion:remove-circle"
+                      width="30"
+                      color="#ddd"
+                    />
+                  ) : (
+                    <Icon
+                      className="rotate-145"
+                      icon="ion:arrow-up"
+                      width="16"
+                      color="#00dd33"
+                    />
+                  )}
                 </span>
               </div>
               <div className="">{props.rateNumber}</div>
