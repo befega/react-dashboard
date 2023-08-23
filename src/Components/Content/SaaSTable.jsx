@@ -9,8 +9,6 @@ import {
   Segmented,
   Col,
   Row,
-  Divider,
-  Typography,
 } from "antd";
 import { Icon } from "@iconify/react";
 import React, { useState, useEffect } from "react";
@@ -18,11 +16,12 @@ import axios from "axios";
 import FilterButton from "../Buttons/FilterButton";
 
 export default function SaaSTable() {
-  const [posts, setPosts] = useState([]);
   const dataLocation = window.location.origin + "/data.json";
+  const [posts, setPosts] = useState([]);
   const [sortedInfo, setSortedInfo] = useState({});
   const [searchText, setSearchText] = useState("");
   const [filteredRole, setFilteredRole] = useState([]);
+  const [filteredRole2, setFilteredRole2] = useState([]);
   const [filteredPriority, setFilteredPriority] = useState([]);
   const [visibleColumns, setVisibleColumns] = useState([
     "Name",
@@ -49,6 +48,7 @@ export default function SaaSTable() {
         (record) =>
           record.name.toLowerCase().includes(searchText.toLowerCase()) &&
           (filteredRole.length === 0 || filteredRole.includes(record.role)) &&
+          (filteredRole2.length === 0 || filteredRole2.includes(record.role)) &&
           (filteredPriority.length === 0 ||
             filteredPriority.includes(record.priority))
       )
@@ -57,7 +57,10 @@ export default function SaaSTable() {
   const clearAll = () => {
     setSearchText("");
     setFilteredRole([]);
+    setFilteredRole2([]);
+    setFilteredPriority([]);
     setSortedInfo({});
+    fillColumnFilter();
   };
 
   const clearRoleFilter = () => {
@@ -189,8 +192,8 @@ export default function SaaSTable() {
           >
             <Segmented
               options={["Group", "Metrics", "Program"]}
-              value={filteredRole}
-              onChange={(values) => setFilteredRole(values)}
+              value={filteredRole2}
+              onChange={(values) => setFilteredRole2(values)}
               style={{ marginRight: 30 }}
             />
 
@@ -211,10 +214,13 @@ export default function SaaSTable() {
             />
 
             {(filteredRole.length > 0 ||
+              filteredRole2.length > 0 ||
               filteredPriority.length > 0 ||
               searchText.length > 0 ||
+              visibleColumns.length === 0 ||
+              visibleColumns.length < columns.length ||
               sortedInfo.order != null) && (
-              <Button onClick={clearAll}>Clear All Filters</Button>
+              <Button onClick={clearAll}>Clear Filters</Button>
             )}
           </Space>
         </Col>
@@ -231,6 +237,7 @@ export default function SaaSTable() {
                     marginBottom: 16,
                     display: "flex",
                     flexDirection: "column",
+                    zIndex: 90,
                   }}
                 />
                 {visibleColumns.length > 0 && (

@@ -2,10 +2,11 @@ import React from "react";
 import { Button, Checkbox, Popover, Divider, Typography } from "antd";
 
 export default function FilterButton(props) {
+  const valueData = Array.from(props.value);
   return (
     <>
       <Popover
-        placement="bottom"
+        placement="bottomLeft"
         content={
           <>
             <Checkbox.Group
@@ -34,7 +35,7 @@ export default function FilterButton(props) {
               <div className="flex flex-row justify-center items-center">
                 <Divider type="vertical" />
                 {props.value.length > 0
-                  ? props.value.map((item, index) =>
+                  ? valueData.map((item, index) =>
                       props.value.length > 0 && index > 1 ? (
                         <Typography.Text key={index} code>
                           {props.value.length}
