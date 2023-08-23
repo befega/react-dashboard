@@ -20,11 +20,13 @@ export default function SaaSTable() {
   const [sortedInfo, setSortedInfo] = useState({});
   const [searchText, setSearchText] = useState("");
   const [filteredRole, setFilteredRole] = useState([]);
+  const [filteredPriority, setFilteredPriority] = useState([]);
   const [visibleColumns, setVisibleColumns] = useState([
     "Name",
     "Title",
     "Email",
     "Role",
+    "Priority",
   ]);
   const handleChange = (pagination, filters, sorter) => {
     setSortedInfo(sorter);
@@ -43,7 +45,9 @@ export default function SaaSTable() {
     ? posts.filter(
         (record) =>
           record.name.toLowerCase().includes(searchText.toLowerCase()) &&
-          (filteredRole.length === 0 || filteredRole.includes(record.role))
+          (filteredRole.length === 0 || filteredRole.includes(record.role)) &&
+          (filteredPriority.length === 0 ||
+            filteredPriority.includes(record.priority))
       )
     : [];
 
@@ -57,12 +61,16 @@ export default function SaaSTable() {
     setFilteredRole([]);
   };
 
+  const clearPriorityFilter = () => {
+    setFilteredPriority([]);
+  };
+
   const clearColumnFilter = () => {
     setVisibleColumns([]);
   };
 
   const fillColumnFilter = () => {
-    setVisibleColumns(["Name", "Title", "Email", "Role"]);
+    setVisibleColumns(["Name", "Title", "Email", "Role", "Priority"]);
   };
 
   function renderTagColor(text) {
@@ -73,6 +81,19 @@ export default function SaaSTable() {
         return "red";
       case "Program":
         return "green";
+      default:
+        return "gray";
+    }
+  }
+
+  function renderTagPriorityColor(text) {
+    switch (text) {
+      case "Low":
+        return "green";
+      case "Medium":
+        return "gold";
+      case "High":
+        return "red";
       default:
         return "gray";
     }
@@ -118,11 +139,25 @@ export default function SaaSTable() {
       ellipsis: true,
       showSorterTooltip: false,
     },
+    {
+      title: "Priority",
+      dataIndex: "priority",
+      key: "priority",
+      render: (text) => (
+        <>
+          {<Tag color={renderTagPriorityColor(text)}>{text.toUpperCase()}</Tag>}
+        </>
+      ),
+      sorter: (a, b) => a.priority.localeCompare(b.priority),
+      sortOrder: sortedInfo.columnKey === "priority" ? sortedInfo.order : null,
+      ellipsis: true,
+      showSorterTooltip: false,
+    },
   ];
 
   const filColumns = columns.filter(
     (col) =>
-      !["Name", "Title", "Email", "Role"].includes(col.title) ||
+      !["Name", "Title", "Email", "Role", "Priority"].includes(col.title) ||
       visibleColumns.includes(col.title)
   );
 
@@ -180,6 +215,30 @@ export default function SaaSTable() {
               <Button>Role Filter</Button>
             </Popover>
 
+            <Popover
+              placement="bottom"
+              content={
+                <>
+                  <Checkbox.Group
+                    options={["Low", "Medium", "High"]}
+                    value={filteredPriority}
+                    onChange={(values) => setFilteredPriority(values)}
+                    style={{
+                      marginBottom: 16,
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  />
+                  {filteredPriority.length > 0 && (
+                    <Button onClick={clearPriorityFilter}>Clear Filter</Button>
+                  )}
+                </>
+              }
+              trigger="click"
+            >
+              <Button>Priority Filter</Button>
+            </Popover>
+
             {(filteredRole.length > 0 ||
               searchText.length > 0 ||
               sortedInfo.order != null) && (
@@ -193,7 +252,7 @@ export default function SaaSTable() {
             content={
               <>
                 <Checkbox.Group
-                  options={["Name", "Title", "Email", "Role"]}
+                  options={["Name", "Title", "Email", "Role", "Priority"]}
                   value={visibleColumns}
                   onChange={(values) => setVisibleColumns(values)}
                   style={{
