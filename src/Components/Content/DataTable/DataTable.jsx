@@ -4,6 +4,8 @@ import Pagination from "./Pagination";
 import TableData from "./TableData";
 import axios from "axios";
 import Drawer from "./Drawer";
+import { Popover } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 export default function DataTable() {
   const [posts, setPosts] = useState([]);
@@ -12,6 +14,7 @@ export default function DataTable() {
   const [postsPerPage] = useState(6);
   const [selectedRole, setSelectedRole] = useState("All");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const dataLocation = window.location.origin + "/data.json";
 
   const handleDrawerOpen = () => {
     setIsDrawerOpen(true);
@@ -24,7 +27,7 @@ export default function DataTable() {
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const res = await axios.get("http://localhost:5175/data.json");
+      const res = await axios.get(dataLocation);
       setPosts(res.data);
       setLoading(false);
     };
@@ -39,8 +42,8 @@ export default function DataTable() {
     return posts.filter((post) => post.role === selectedRole);
   };
 
-  const handleRoleChange = (e) => {
-    setSelectedRole(e.target.value);
+  const handleRoleChange = (selectedRoles) => {
+    setSelectedRoles(selectedRoles);
     setCurrentPage(1);
   };
 
@@ -68,15 +71,18 @@ export default function DataTable() {
               title, email and role.
             </p>
           </div>
-          <div className="flex flex-col-2 gap-3 mt-4 justify-end items-end md:justify-center md:items-center sm:ml-16 sm:mt-0 sm:flex-none">
-            <button
-              onClick={handleDrawerOpen}
-              type="button"
-              className="block rounded-md bg-indigo-600 px-3 py-1.5 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Add user
-            </button>
+          <div className="grid grid-cols-1 gap-3 mt-4 justify-end items-end md:justify-center md:items-center sm:ml-16 sm:mt-0 sm:flex-none">
             <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+              {" "}
+              <button
+                onClick={handleDrawerOpen}
+                type="button"
+                className="block rounded-md bg-indigo-600 px-3 py-1.5 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Add user
+              </button>
+            </div>
+            {/* <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
               <select
                 onChange={handleRoleChange}
                 value={selectedRole}
@@ -89,10 +95,61 @@ export default function DataTable() {
                   </option>
                 ))}
               </select>
+            </div> */}
+            <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+              <Popover className="relative text-gray-700 hover:bg-slate-50 font-medium ring-1 ring-slate-200 rounded-lg text-sm px-3 py-1">
+                {({ open }) => (
+                  <>
+                    <Popover.Button
+                      className={
+                        "grid grid-cols-2 justify-center items-center text-center"
+                      }
+                    >
+                      Role{" "}
+                      <ChevronDownIcon
+                        className={
+                          open
+                            ? "rotate-180 transform transition-all"
+                            : "transition-all"
+                        }
+                      />
+                    </Popover.Button>
+                    <Popover.Panel className="absolute z-10 mt-3 -translate-x-1/2 transform px-4">
+                      <div className="grid grid-cols-1">
+                        {roleOptions.map((item, index) => (
+                          <div className="flex items-center p-2 bg-slate-400 w-full">
+                            <input
+                              key={index}
+                              id={index}
+                              type="checkbox"
+                              value={item}
+                              checked={selectedRole.includes(item)}
+                              onChange={handleRoleChange}
+                              className="w-4 h-4 text-slate-700 bg-gray-100 border-gray-300 rounded"
+                            />
+                            <label
+                              key={index}
+                              htmlFor={index}
+                              className="ml-2 text-sm font-medium text-gray-900"
+                            >
+                              {item}
+                            </label>
+                          </div>
+                        ))}
+                      </div>
+                    </Popover.Panel>
+                  </>
+                )}
+              </Popover>
             </div>
           </div>
         </div>
-        <TableData dataPosts={currentFilteredPosts} loading={loading} />
+        <TableData
+          dataPosts={currentFilteredPosts}
+          rawData={roleOptions}
+          loading={loading}
+          roleChange={selectedRole}
+        />
         <Pagination
           postsPerPage={postsPerPage}
           totalPosts={filteredPosts.length}

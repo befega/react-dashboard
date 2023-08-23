@@ -66,7 +66,7 @@ export default function Pagination({
                 className={`relative ${
                   currentPage === number
                     ? "z-10 bg-indigo-600 text-white focus:outline focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-indigo-300"
-                    : "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                    : "text-black ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                 } inline-flex items-center px-4 py-2 text-sm font-semibold`}
               >
                 {number}

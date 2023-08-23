@@ -1,10 +1,12 @@
 import React from "react";
-import DataTable from "./DataTable/DataTable";
+import AntTable from "./anttable";
+// import DataTable from "./DataTable/DataTable";
 
 export default function Tables() {
   return (
     <>
-      <DataTable />
+      {/* <DataTable /> */}
+      <AntTable />
     </>
   );
 }

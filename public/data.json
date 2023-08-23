@@ -1,210 +1,210 @@
 [
   {
     "id": 1,
-    "full_name": "Rodney Leffler",
+    "name": "Rodney Leffler",
     "title": "Customer Research Executive",
     "email": "Wilhelmine.Turner47@gmail.com",
     "role": "Group"
   },
   {
     "id": 2,
-    "full_name": "Mrs. Bertha Cassin-Lubowitz",
+    "name": "Mrs. Bertha Cassin-Lubowitz",
     "title": "Principal Web Executive",
     "email": "Idella.Reynolds94@hotmail.com",
     "role": "Metrics"
   },
   {
     "id": 3,
-    "full_name": "Lola Morissette",
+    "name": "Lola Morissette",
     "title": "Human Usability Analyst",
     "email": "Anjali.Rath98@yahoo.com",
     "role": "Program"
   },
   {
     "id": 4,
-    "full_name": "Wesley Weissnat",
+    "name": "Wesley Weissnat",
     "title": "Legacy Interactions Associate",
     "email": "Pansy66@gmail.com",
     "role": "Program"
   },
   {
     "id": 5,
-    "full_name": "Tomas McDermott-Parisian",
+    "name": "Tomas McDermott-Parisian",
     "title": "Principal Marketing Officer",
     "email": "Hillary.Bergstrom-Lebsack20@yahoo.com",
     "role": "Metrics"
   },
   {
     "id": 6,
-    "full_name": "Patti Kutch",
+    "name": "Patti Kutch",
     "title": "Internal Quality Designer",
     "email": "Melissa_Rodriguez@yahoo.com",
     "role": "Metrics"
   },
   {
     "id": 7,
-    "full_name": "Gretchen Kohler",
+    "name": "Gretchen Kohler",
     "title": "District Brand Engineer",
     "email": "Concepcion_Howell@hotmail.com",
     "role": "Program"
   },
   {
     "id": 8,
-    "full_name": "Casey Hansen",
+    "name": "Casey Hansen",
     "title": "Forward Integration Facilitator",
     "email": "Gideon_Stroman78@yahoo.com",
     "role": "Metrics"
   },
   {
     "id": 9,
-    "full_name": "Ron Konopelski",
+    "name": "Ron Konopelski",
     "title": "Regional Interactions Engineer",
     "email": "Lue14@gmail.com",
     "role": "Program"
   },
   {
     "id": 10,
-    "full_name": "April Hermiston",
+    "name": "April Hermiston",
     "title": "Corporate Security Director",
     "email": "Ena.Greenfelder@hotmail.com",
     "role": "Group"
   },
   {
     "id": 11,
-    "full_name": "Suzanne Kuhic",
+    "name": "Suzanne Kuhic",
     "title": "Central Program Agent",
     "email": "Eve_Braun@yahoo.com",
     "role": "Metrics"
   },
   {
     "id": 12,
-    "full_name": "Doreen Fay",
+    "name": "Doreen Fay",
     "title": "Customer Research Producer",
     "email": "Trystan.Monahan91@hotmail.com",
     "role": "Group"
   },
   {
     "id": 13,
-    "full_name": "Delores Blanda",
+    "name": "Delores Blanda",
     "title": "Senior Mobility Liaison",
     "email": "Taryn79@yahoo.com",
     "role": "Program"
   },
   {
     "id": 14,
-    "full_name": "Lucy Kulas",
+    "name": "Lucy Kulas",
     "title": "District Mobility Planner",
     "email": "Emil.Lesch33@gmail.com",
     "role": "Group"
   },
   {
     "id": 15,
-    "full_name": "Marc Ankunding",
+    "name": "Marc Ankunding",
     "title": "Legacy Identity Director",
     "email": "Melyssa.Quigley66@yahoo.com",
     "role": "Metrics"
   },
   {
     "id": 16,
-    "full_name": "Spencer Gleason",
+    "name": "Spencer Gleason",
     "title": "Corporate Accountability Planner",
     "email": "Rusty.Cruickshank@gmail.com",
     "role": "Program"
   },
   {
     "id": 17,
-    "full_name": "Dr. Dwayne Stoltenberg",
+    "name": "Dr. Dwayne Stoltenberg",
     "title": "Direct Branding Agent",
     "email": "Emely16@gmail.com",
     "role": "Metrics"
   },
   {
     "id": 18,
-    "full_name": "Corey Bayer",
+    "name": "Corey Bayer",
     "title": "Direct Usability Liaison",
     "email": "Abby.Rice@hotmail.com",
     "role": "Program"
   },
   {
     "id": 19,
-    "full_name": "Jody Lebsack",
+    "name": "Jody Lebsack",
     "title": "Senior Branding Designer",
     "email": "Jarret33@hotmail.com",
     "role": "Metrics"
   },
   {
     "id": 20,
-    "full_name": "Deanna Bogisich",
+    "name": "Deanna Bogisich",
     "title": "Investor Marketing Designer",
     "email": "Easton32@gmail.com",
     "role": "Program"
   },
   {
     "id": 21,
-    "full_name": "Ana Hickle",
+    "name": "Ana Hickle",
     "title": "Global Security Developer",
     "email": "Esperanza.White@yahoo.com",
     "role": "Metrics"
   },
   {
     "id": 22,
-    "full_name": "Eloise McKenzie",
+    "name": "Eloise McKenzie",
     "title": "Product Directives Producer",
     "email": "Shawn.Howe@gmail.com",
     "role": "Group"
   },
   {
     "id": 23,
-    "full_name": "Catherine Jaskolski-Windler",
+    "name": "Catherine Jaskolski-Windler",
     "title": "Chief Functionality Representative",
     "email": "Royce.Morar97@gmail.com",
     "role": "Program"
   },
   {
     "id": 24,
-    "full_name": "Shannon Hartmann Sr.",
+    "name": "Shannon Hartmann Sr.",
     "title": "Lead Security Strategist",
     "email": "Coralie32@hotmail.com",
     "role": "Metrics"
   },
   {
     "id": 25,
-    "full_name": "Carole Frami",
+    "name": "Carole Frami",
     "title": "Direct Usability Specialist",
     "email": "Arthur86@gmail.com",
     "role": "Group"
   },
   {
     "id": 26,
-    "full_name": "Nicole Marvin",
+    "name": "Nicole Marvin",
     "title": "Corporate Implementation Agent",
     "email": "Maude77@hotmail.com",
     "role": "Program"
   },
   {
     "id": 27,
-    "full_name": "Kevin Heaney",
+    "name": "Kevin Heaney",
     "title": "Principal Applications Officer",
     "email": "Jeffry42@yahoo.com",
     "role": "Metrics"
   },
   {
     "id": 28,
-    "full_name": "Spencer McLaughlin",
+    "name": "Spencer McLaughlin",
     "title": "Legacy Metrics Engineer",
     "email": "Devan_Effertz38@hotmail.com",
     "role": "Group"
   },
   {
     "id": 29,
-    "full_name": "Shaun McCullough",
+    "name": "Shaun McCullough",
     "title": "Dynamic Program Producer",
     "email": "Vernie_Dach53@hotmail.com",
     "role": "Metrics"
   },
   {
     "id": 30,
-    "full_name": "Dana Leuschke",
+    "name": "Dana Leuschke",
     "title": "Dynamic Group Designer",
     "email": "Bret_Herman43@gmail.com",
     "role": "Program"

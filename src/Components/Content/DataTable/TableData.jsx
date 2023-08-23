@@ -1,11 +1,11 @@
 import React from "react";
-import { Fragment, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function TableData({ dataPosts, loading }) {
+export default function TableData({ dataPosts, loading, rawData, roleChange }) {
   if (loading) {
     return <h2>Data Loading...</h2>;
   }
@@ -19,6 +19,15 @@ export default function TableData({ dataPosts, loading }) {
   const [filterText, setFilterText] = useState("");
   const [filteredData, setFilteredData] = useState(dataPosts);
 
+  const filterByRoles = () => {
+    if (selectedRoles.includes("All")) {
+      return dataPosts; // Tüm veriyi döndür
+    }
+    return dataPosts.filter((post) => selectedRoles.includes(post.role));
+  };
+
+  /*   const filteredData = filterByRoles(); */
+
   const handleFilterChange = (e) => {
     const searchText = e.target.value.toLowerCase();
     setFilterText(searchText);
@@ -28,6 +37,20 @@ export default function TableData({ dataPosts, loading }) {
     );
 
     setFilteredData(filtered);
+  };
+
+  const togglePersonSelection = (personId) => {
+    setSelectedPeople((prevSelectedPeople) => {
+      const updatedSelections = { ...prevSelectedPeople };
+
+      if (updatedSelections[personId]) {
+        delete updatedSelections[personId];
+      } else {
+        updatedSelections[personId] = true;
+      }
+
+      return updatedSelections;
+    });
   };
 
   useEffect(() => {
@@ -40,10 +63,14 @@ export default function TableData({ dataPosts, loading }) {
 
   const toggleAll = () => {
     setSelectedPeople((prevSelectedPeople) => {
-      if (prevSelectedPeople.length === filteredData.length) {
-        return [];
+      if (Object.keys(prevSelectedPeople).length === filteredData.length) {
+        return {};
       } else {
-        return filteredData.map((person) => person.id);
+        const updatedSelections = {};
+        filteredData.forEach((person) => {
+          updatedSelections[person.id] = true;
+        });
+        return updatedSelections;
       }
     });
   };
@@ -87,8 +114,8 @@ export default function TableData({ dataPosts, loading }) {
                 </div>
               )}
               <div className="flex flex-row gap-5 justify-end items-center self-center">
-                {/* <div className="mt-6">
-                  <button
+                <div className="mt-6">
+                  {/*                   <button
                     id="dropdownCheckboxButton"
                     data-dropdown-toggle="dropdownDefaultCheckbox"
                     className="text-gray-700 hover:bg-slate-50 font-medium ring-1 ring-slate-200 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
@@ -119,7 +146,7 @@ export default function TableData({ dataPosts, loading }) {
                       className="p-4 space-y-3 text-sm text-gray-700 dark:text-gray-200 ring-1 ring-slate-200 rounded"
                       aria-labelledby="dropdownCheckboxButton"
                     >
-                      {dataPosts.map((item) => (
+                      {rawData.map((item) => (
                         <li>
                           <div className="flex items-center">
                             <input
@@ -138,8 +165,8 @@ export default function TableData({ dataPosts, loading }) {
                         </li>
                       ))}
                     </ul>
-                  </div>
-                </div> */}
+                  </div> */}
+                </div>
 
                 <div className="w-24">
                   <label
@@ -187,7 +214,10 @@ export default function TableData({ dataPosts, loading }) {
                         ref={(ref) => {
                           handleCheckboxRef(ref);
                         }}
-                        checked={checked}
+                        checked={
+                          Object.keys(selectedPeople).length ===
+                          filteredData.length
+                        }
                         onChange={toggleAll}
                       />
                     </th>
@@ -229,31 +259,23 @@ export default function TableData({ dataPosts, loading }) {
                       <tr
                         key={person.email}
                         className={
-                          selectedPeople.includes(person.id)
+                          Object.keys(selectedPeople).includes(person.id)
                             ? "bg-gray-50"
                             : undefined
                         }
                       >
                         <td className="relative px-7 sm:w-12 sm:px-6">
-                          {selectedPeople.includes(person.id) && (
+                          {Object.keys(selectedPeople).includes(person.id) && (
                             <div className="absolute inset-y-0 left-0 w-0.5 bg-indigo-600" />
                           )}
                           <input
                             type="checkbox"
                             className="absolute left-4 top-1/2 -mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                             value={person.email}
-                            checked={selectedPeople.includes(person.id)}
-                            onChange={(e) =>
-                              setSelectedPeople((prevSelectedPeople) => {
-                                if (e.target.checked) {
-                                  return [...prevSelectedPeople, person.id];
-                                } else {
-                                  return prevSelectedPeople.filter(
-                                    (p) => p !== person.id
-                                  );
-                                }
-                              })
-                            }
+                            checked={Object.keys(selectedPeople).includes(
+                              person.id
+                            )}
+                            onChange={() => togglePersonSelection(person.id)}
                           />
                         </td>
                         <td

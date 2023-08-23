@@ -21,7 +21,12 @@ const navigation = [
   { name: "Dashboard", href: "/", icon: HomeIcon, current: false },
   { name: "Cards", href: "/cards", icon: UsersIcon, current: false },
   { name: "Tables", href: "/tables", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
+  {
+    name: "SaaS Tables",
+    href: "/saastables",
+    icon: FolderIcon,
+    current: false,
+  },
   { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
 ];
@@ -227,7 +232,7 @@ export default function MainLayout() {
                   ))}
                 </ul>
               </li>
-              <li>
+              {/*               <li>
                 <div className="text-xs font-semibold leading-6 text-gray-400">
                   Your teams
                 </div>
@@ -258,7 +263,7 @@ export default function MainLayout() {
                     </li>
                   ))}
                 </ul>
-              </li>
+              </li> */}
               <li className="mt-auto">
                 <a
                   href="#"
