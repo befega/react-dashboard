@@ -9,10 +9,13 @@ import {
   Segmented,
   Col,
   Row,
+  Divider,
+  Typography,
 } from "antd";
 import { Icon } from "@iconify/react";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import FilterButton from "../Buttons/FilterButton";
 
 export default function SaaSTable() {
   const [posts, setPosts] = useState([]);
@@ -191,55 +194,24 @@ export default function SaaSTable() {
               style={{ marginRight: 30 }}
             />
 
-            <Popover
-              placement="bottom"
-              content={
-                <>
-                  <Checkbox.Group
-                    options={["Group", "Metrics", "Program"]}
-                    value={filteredRole}
-                    onChange={(values) => setFilteredRole(values)}
-                    style={{
-                      marginBottom: 16,
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  />
-                  {filteredRole.length > 0 && (
-                    <Button onClick={clearRoleFilter}>Clear Filter</Button>
-                  )}
-                </>
-              }
-              trigger="click"
-            >
-              <Button>Role Filter</Button>
-            </Popover>
+            <FilterButton
+              options={["Group", "Metrics", "Program"]}
+              value={filteredRole}
+              onChange={(values) => setFilteredRole(values)}
+              clearFilter={clearRoleFilter}
+              title={"Role Filter"}
+            />
 
-            <Popover
-              placement="bottom"
-              content={
-                <>
-                  <Checkbox.Group
-                    options={["Low", "Medium", "High"]}
-                    value={filteredPriority}
-                    onChange={(values) => setFilteredPriority(values)}
-                    style={{
-                      marginBottom: 16,
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  />
-                  {filteredPriority.length > 0 && (
-                    <Button onClick={clearPriorityFilter}>Clear Filter</Button>
-                  )}
-                </>
-              }
-              trigger="click"
-            >
-              <Button>Priority Filter</Button>
-            </Popover>
+            <FilterButton
+              options={["Low", "Medium", "High"]}
+              value={filteredPriority}
+              onChange={(values) => setFilteredPriority(values)}
+              clearFilter={clearPriorityFilter}
+              title={"Priority Filter"}
+            />
 
             {(filteredRole.length > 0 ||
+              filteredPriority.length > 0 ||
               searchText.length > 0 ||
               sortedInfo.order != null) && (
               <Button onClick={clearAll}>Clear All Filters</Button>
