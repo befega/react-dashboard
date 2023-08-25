@@ -200,17 +200,17 @@ export default function SaaSTable() {
             <FilterButton
               options={["Group", "Metrics", "Program"]}
               value={filteredRole}
-              onChange={(values) => setFilteredRole(values)}
+              handleFilterChange={(values) => setFilteredRole(values)}
               clearFilter={clearRoleFilter}
-              title={"Role Filter"}
+              title={"Role"}
             />
 
             <FilterButton
               options={["Low", "Medium", "High"]}
               value={filteredPriority}
-              onChange={(values) => setFilteredPriority(values)}
+              handleFilterChange={(values) => setFilteredPriority(values)}
               clearFilter={clearPriorityFilter}
-              title={"Priority Filter"}
+              title={"Priority"}
             />
 
             {(filteredRole.length > 0 ||
@@ -260,9 +260,11 @@ export default function SaaSTable() {
         </Col>
       </Row>
       <Table
+        rowSelection={[]}
         columns={filColumns}
         dataSource={filteredData}
         onChange={handleChange}
+        rowKey={(record) => record.id}
       />
     </>
   );

@@ -258,6 +258,152 @@ export const HomePage = () => {
             </ul>
           </div>
         </div>
+        <div>
+          <div className="w-96 h-96 p-6 bg-white rounded-xl shadow flex-col justify-start items-center gap-8 inline-flex">
+            <div className="self-stretch h-96 flex-col justify-start items-start gap-5 flex">
+              <div className="w-96 h-64 px-11 py-8 rounded-lg justify-center items-center inline-flex">
+                <div className="w-80 h-48 relative bg-gradient-to-br from-white to-white rounded-2xl shadow border border-white backdrop-blur-md flex-col justify-start items-start flex">
+                  <div className="text-white text-base font-semibold">
+                    Untitled.
+                  </div>
+                  <div className="w-5 h-6 relative" />
+                  <div className="text-white text-xs font-semibold uppercase tracking-wide">
+                    OLIVIA RHYE
+                  </div>
+                  <div className="text-right text-white text-xs font-semibold tracking-wide">
+                    06/24
+                  </div>
+                  <div className="w-11 h-8 px-2 pt-1.5 pb-2 bg-white bg-opacity-10 rounded justify-center items-center inline-flex">
+                    <div className="w-7 h-4 relative">
+                      <img
+                        className="w-7 h-4 left-0 top-0 absolute opacity-50"
+                        src="https://via.placeholder.com/30x18"
+                      />
+                      <img
+                        className="w-3.5 h-4 left-[14.91px] top-0 absolute opacity-50"
+                        src="https://via.placeholder.com/15x18"
+                      />
+                      <img
+                        className="w-1.5 h-3.5 left-[11.73px] top-[2.13px] absolute"
+                        src="https://via.placeholder.com/6x14"
+                      />
+                    </div>
+                  </div>
+                  <div className="text-white text-base font-semibold tracking-widest">
+                    1234 1234 1234 1234
+                  </div>
+                </div>
+              </div>
+              <div className="self-stretch h-14 flex-col justify-start items-start gap-2 flex">
+                <div className="self-stretch text-gray-900 text-lg font-medium leading-7">
+                  Update payment method
+                </div>
+                <div className="self-stretch text-gray-500 text-sm font-normal leading-tight">
+                  Update your card details.
+                </div>
+              </div>
+              <div className="self-stretch h-40 flex-col justify-start items-end gap-4 flex">
+                <div className="self-stretch justify-start items-start gap-4 inline-flex">
+                  <div className="grow shrink basis-0 flex-col justify-start items-start gap-1.5 inline-flex">
+                    <div className="self-stretch h-16 flex-col justify-start items-start gap-1.5 flex">
+                      <div className="text-slate-700 text-sm font-medium leading-tight">
+                        Name on card
+                      </div>
+                      <div className="self-stretch px-3.5 py-2.5 bg-white rounded-lg shadow border border-gray-300 justify-start items-center gap-2 inline-flex">
+                        <div className="grow shrink basis-0 h-6 justify-start items-center gap-2 flex">
+                          <div className="grow shrink basis-0 text-gray-900 text-base font-normal leading-normal">
+                            Olivia Rhye
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-28 flex-col justify-start items-start gap-1.5 inline-flex">
+                    <div className="self-stretch h-16 flex-col justify-start items-start gap-1.5 flex">
+                      <div className="text-slate-700 text-sm font-medium leading-tight">
+                        Expiry
+                      </div>
+                      <div className="self-stretch px-3.5 py-2.5 bg-white rounded-lg shadow border border-gray-300 justify-start items-center gap-2 inline-flex">
+                        <div className="grow shrink basis-0 h-6 justify-start items-center gap-2 flex">
+                          <div className="grow shrink basis-0">
+                            <span className="text-gray-900 text-base font-normal leading-normal">
+                              06
+                            </span>
+                            <span className="text-gray-300 text-base font-normal leading-normal">
+                              {" "}
+                              /{" "}
+                            </span>
+                            <span className="text-gray-900 text-base font-normal leading-normal">
+                              2024
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="self-stretch justify-start items-start gap-4 inline-flex">
+                  <div className="grow shrink basis-0 flex-col justify-start items-start gap-1.5 inline-flex">
+                    <div className="self-stretch h-16 flex-col justify-start items-start gap-1.5 flex">
+                      <div className="text-slate-700 text-sm font-medium leading-tight">
+                        Card number
+                      </div>
+                      <div className="self-stretch pl-2.5 pr-3.5 py-2.5 bg-white rounded-lg shadow border border-gray-300 justify-start items-center gap-2 inline-flex">
+                        <div className="grow shrink basis-0 h-6 justify-start items-center gap-2 flex">
+                          <div className="w-8 h-6 px-1.5 py-1.5 bg-white rounded border border-gray-100 justify-center items-center flex">
+                            <div className="w-6 h-3.5 relative">
+                              <img
+                                className="w-6 h-3.5 left-0 top-0 absolute"
+                                src="https://via.placeholder.com/22x13"
+                              />
+                              <img
+                                className="w-3 h-3.5 left-[11.18px] top-0 absolute"
+                                src="https://via.placeholder.com/11x13"
+                              />
+                              <img
+                                className="w-1 h-2.5 left-[8.80px] top-[1.60px] absolute"
+                                src="https://via.placeholder.com/5x10"
+                              />
+                            </div>
+                          </div>
+                          <div className="grow shrink basis-0 text-gray-900 text-base font-normal leading-normal">
+                            1234 1234 1234 1234
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-28 flex-col justify-start items-start gap-1.5 inline-flex">
+                    <div className="self-stretch h-16 flex-col justify-start items-start gap-1.5 flex">
+                      <div className="text-slate-700 text-sm font-medium leading-tight">
+                        CVV
+                      </div>
+                      <div className="self-stretch px-3.5 py-2.5 bg-white rounded-lg shadow border border-gray-300 justify-start items-center gap-2 inline-flex">
+                        <div className="grow shrink basis-0 h-6 justify-start items-center gap-2 flex">
+                          <div className="grow shrink basis-0 text-gray-900 text-base font-normal leading-normal">
+                            •••
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="self-stretch justify-start items-start gap-3 inline-flex">
+              <div className="grow shrink basis-0 h-11 px-4 py-2.5 bg-white rounded-lg shadow border border-gray-300 justify-center items-center gap-2 flex">
+                <div className="text-slate-700 text-base font-semibold leading-normal">
+                  Cancel
+                </div>
+              </div>
+              <div className="grow shrink basis-0 h-11 px-4 py-2.5 bg-violet-500 rounded-lg shadow border border-violet-500 justify-center items-center gap-2 flex">
+                <div className="text-white text-base font-semibold leading-normal">
+                  Confirm
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
