@@ -5,6 +5,7 @@ import { SearchOutlined } from "@ant-design/icons";
 export default function FilterButton(props) {
   const valueData = Array.from(props.value);
   const optionsData = Array.from(props.options);
+  const iconsData = Array.from(props.icons);
   const [searchText, setSearchText] = useState("");
 
   const filteredOptions = optionsData
@@ -43,25 +44,28 @@ export default function FilterButton(props) {
                 </Col>
               </Row>
               {filteredOptions.map((item, index) => (
-                <div class="w-40">
+                <div className="w-40">
                   <div className="inline-flex items-center hover:bg-gray-100 w-full rounded">
                     <label
-                      class="relative flex cursor-pointer items-center rounded-full p-2"
-                      htmlFor={index}
+                      className="relative flex cursor-pointer items-center rounded-full p-2"
+                      htmlFor={item}
                     >
                       <input
-                        id={index}
+                        id={item}
                         type="checkbox"
-                        key={index}
+                        key={item}
                         value={item}
                         checked={valueData.includes(item)}
                         onChange={handleCheckboxChange}
-                        class="before:content[''] peer relative h-4 w-4 cursor-pointer appearance-none ring-0 focus:ring-0 rounded-sm before:bg-blue-gray-500 before:opacity-0 before:transition-opacity hover:before:opacity-10"
+                        className="before:content[''] peer relative h-4 w-4 cursor-pointer appearance-none ring-0 focus:ring-0 rounded-sm before:bg-blue-gray-500 before:opacity-0 before:transition-opacity hover:before:opacity-10"
                       />
                     </label>
+                    <span className="mr-1 inline-block">
+                      {iconsData[index]}
+                    </span>
                     <label
-                      class="mt-px cursor-pointer block p- select-none font-light text-gray-800"
-                      htmlFor={index}
+                      className="mt-px items-center cursor-pointer block select-none font-light text-gray-800"
+                      htmlFor={item}
                     >
                       {item}
                     </label>

@@ -14,6 +14,14 @@ import { Icon } from "@iconify/react";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import FilterButton from "../Buttons/FilterButton";
+import { RiGroup2Line } from "react-icons/ri";
+import { BiPieChartAlt } from "react-icons/bi";
+import { RiMiniProgramLine } from "react-icons/ri";
+import {
+  AiOutlineArrowDown,
+  AiOutlineArrowRight,
+  AiOutlineArrowUp,
+} from "react-icons/ai";
 
 export default function SaaSTable() {
   const dataLocation = window.location.origin + "/data.json";
@@ -203,6 +211,11 @@ export default function SaaSTable() {
               handleFilterChange={(values) => setFilteredRole(values)}
               clearFilter={clearRoleFilter}
               title={"Role"}
+              icons={[
+                <RiGroup2Line size={18} />,
+                <BiPieChartAlt size={18} />,
+                <RiMiniProgramLine size={18} />,
+              ]}
             />
 
             <FilterButton
@@ -211,6 +224,11 @@ export default function SaaSTable() {
               handleFilterChange={(values) => setFilteredPriority(values)}
               clearFilter={clearPriorityFilter}
               title={"Priority"}
+              icons={[
+                <AiOutlineArrowDown size={18} />,
+                <AiOutlineArrowRight size={18} />,
+                <AiOutlineArrowUp size={18} />,
+              ]}
             />
 
             {(filteredRole.length > 0 ||
